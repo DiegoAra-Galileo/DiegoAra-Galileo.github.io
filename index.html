@@ -9,14 +9,13 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:        #0d1b2a;
-      --bg2:       #102236;
-      --accent:    #4a9eca;
-      --accent2:   #1e5f8a;
-      --glow:      rgba(74, 158, 202, 0.18);
-      --text:      #dce9f5;
-      --muted:     #6b94b3;
-      --line:      rgba(74, 158, 202, 0.25);
+      --bg:     #0d1b2a;
+      --accent: #4a9eca;
+      --accent2:#1e5f8a;
+      --glow:   rgba(74,158,202,0.18);
+      --text:   #dce9f5;
+      --muted:  #6b94b3;
+      --line:   rgba(74,158,202,0.25);
     }
 
     html, body {
@@ -27,7 +26,6 @@
       overflow-x: hidden;
     }
 
-    /* ── Animated canvas background ── */
     canvas {
       position: fixed;
       inset: 0;
@@ -35,7 +33,6 @@
       opacity: 0.55;
     }
 
-    /* ── Noise overlay ── */
     body::before {
       content: '';
       position: fixed;
@@ -47,7 +44,6 @@
       opacity: 0.6;
     }
 
-    /* ── Main layout ── */
     main {
       position: relative;
       z-index: 2;
@@ -59,9 +55,8 @@
       padding: 2rem;
     }
 
-    /* ── Card ── */
     .card {
-      background: rgba(13, 27, 42, 0.72);
+      background: rgba(13,27,42,0.72);
       border: 1px solid var(--line);
       border-radius: 2px;
       padding: 4rem 5rem;
@@ -81,7 +76,6 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    /* ── Top rule ── */
     .top-rule {
       display: flex;
       align-items: center;
@@ -105,7 +99,6 @@
       opacity: .5;
     }
 
-    /* ── Name ── */
     .name {
       font-family: 'Cormorant Garamond', serif;
       font-weight: 300;
@@ -120,7 +113,6 @@
       color: var(--accent);
     }
 
-    /* ── Divider ── */
     .divider {
       width: 3rem;
       height: 1px;
@@ -133,7 +125,6 @@
       to   { width: 3rem; opacity: 1; }
     }
 
-    /* ── Email ── */
     .email-row {
       display: flex;
       align-items: center;
@@ -167,7 +158,71 @@
     .email-link:hover { color: #a0d4f5; }
     .email-link:hover::after { width: 100%; }
 
-    /* ── Bottom bar ── */
+    .section-title {
+      font-size: .6rem;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 2.4rem;
+      margin-bottom: 1.2rem;
+      animation: fadeUp 1.1s .5s cubic-bezier(.22,.61,.36,1) both;
+    }
+
+    .exp-card {
+      border-left: 2px solid var(--accent2);
+      padding: 1rem 1.3rem;
+      background: rgba(74,158,202,0.05);
+      border-radius: 0 2px 2px 0;
+      position: relative;
+      animation: fadeUp 1.1s .6s cubic-bezier(.22,.61,.36,1) both;
+      transition: background .3s;
+    }
+    .exp-card:hover {
+      background: rgba(74,158,202,0.10);
+    }
+    .exp-card::before {
+      content: '';
+      position: absolute;
+      left: -6px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 10px var(--accent);
+    }
+    .exp-role {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: #fff;
+      letter-spacing: .03em;
+      margin-bottom: .4rem;
+    }
+    .exp-meta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .exp-badge {
+      font-size: .58rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border: 1px solid var(--accent2);
+      border-radius: 2px;
+      padding: .2rem .6rem;
+    }
+    .exp-years {
+      font-size: .72rem;
+      color: var(--muted);
+    }
+    .exp-years strong {
+      color: var(--text);
+    }
+
     .bottom-bar {
       display: flex;
       justify-content: space-between;
@@ -175,7 +230,7 @@
       margin-top: 3.5rem;
       padding-top: 1.5rem;
       border-top: 1px solid var(--line);
-      animation: fadeUp 1.1s .55s cubic-bezier(.22,.61,.36,1) both;
+      animation: fadeUp 1.1s .7s cubic-bezier(.22,.61,.36,1) both;
     }
     .year {
       font-size: .6rem;
@@ -183,10 +238,7 @@
       color: var(--muted);
       text-transform: uppercase;
     }
-    .dot-row {
-      display: flex;
-      gap: .5rem;
-    }
+    .dot-row { display: flex; gap: .5rem; }
     .dot {
       width: 5px;
       height: 5px;
@@ -201,7 +253,6 @@
       50%       { opacity: 1;  transform: scale(1.4); }
     }
 
-    /* ── Cursor blink ── */
     .cursor {
       display: inline-block;
       width: 2px;
@@ -237,8 +288,18 @@
       <a class="email-link" href="mailto:diego.ara@galileo.edu">diego.ara@galileo.edu</a>
     </div>
 
+    <p class="section-title">Experiencia Laboral</p>
+
+    <div class="exp-card">
+      <div class="exp-role">Diseñador de Software</div>
+      <div class="exp-meta">
+        <span class="exp-badge">Tiempo completo</span>
+        <span class="exp-years"><strong>5</strong> años de experiencia</span>
+      </div>
+    </div>
+
     <div class="bottom-bar">
-      <span class="year">© 2026</span>
+      <span class="year">&copy; 2026</span>
       <div class="dot-row">
         <div class="dot"></div>
         <div class="dot"></div>
@@ -250,12 +311,9 @@
 </main>
 
 <script>
-  /* ── Particle field ── */
   const canvas = document.getElementById('c');
   const ctx    = canvas.getContext('2d');
-
   let W, H, particles = [];
-
   const COLORS = ['#1e5f8a','#2a7db5','#4a9eca','#6bbde0'];
 
   function resize() {
@@ -265,11 +323,11 @@
 
   function createParticle() {
     return {
-      x: Math.random() * W,
-      y: Math.random() * H,
-      r: Math.random() * 1.6 + 0.3,
-      vx: (Math.random() - .5) * .35,
-      vy: (Math.random() - .5) * .35,
+      x:     Math.random() * W,
+      y:     Math.random() * H,
+      r:     Math.random() * 1.6 + 0.3,
+      vx:    (Math.random() - .5) * .35,
+      vy:    (Math.random() - .5) * .35,
       color: COLORS[Math.floor(Math.random() * COLORS.length)],
       alpha: Math.random() * .6 + .15,
     };
@@ -288,7 +346,7 @@
         const d  = Math.sqrt(dx * dx + dy * dy);
         if (d < 130) {
           ctx.beginPath();
-          ctx.strokeStyle = `rgba(74,158,202,${(1 - d / 130) * 0.12})`;
+          ctx.strokeStyle = 'rgba(74,158,202,' + ((1 - d / 130) * 0.12) + ')';
           ctx.lineWidth = 0.5;
           ctx.moveTo(particles[i].x, particles[i].y);
           ctx.lineTo(particles[j].x, particles[j].y);
@@ -300,23 +358,18 @@
 
   function loop() {
     ctx.clearRect(0, 0, W, H);
-
-    /* deep gradient wash */
-    const g = ctx.createRadialGradient(W*.5, H*.5, 0, W*.5, H*.5, Math.max(W,H)*.7);
+    var g = ctx.createRadialGradient(W*.5, H*.5, 0, W*.5, H*.5, Math.max(W,H)*.7);
     g.addColorStop(0, 'rgba(16,34,54,.65)');
-    g.addColorStop(1, 'rgba(8,15,24,.0)');
+    g.addColorStop(1, 'rgba(8,15,24,0)');
     ctx.fillStyle = g;
     ctx.fillRect(0, 0, W, H);
-
     drawConnections();
-
-    particles.forEach(p => {
+    particles.forEach(function(p) {
       p.x += p.vx; p.y += p.vy;
       if (p.x < 0) p.x = W;
       if (p.x > W) p.x = 0;
       if (p.y < 0) p.y = H;
       if (p.y > H) p.y = 0;
-
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
       ctx.fillStyle = p.color;
@@ -324,11 +377,10 @@
       ctx.fill();
       ctx.globalAlpha = 1;
     });
-
     requestAnimationFrame(loop);
   }
 
-  window.addEventListener('resize', () => { resize(); });
+  window.addEventListener('resize', resize);
   init();
   loop();
 </script>
